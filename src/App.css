@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  
 }
 
 .App-logo {
@@ -39,11 +39,24 @@
 }
 h1 {
   flex-direction: row;
-  
+  margin-right: auto;
+  position: relative;
 
 }
-p {
+.gone{
   display: none;
 }
+.here{
+  text-align: left;
+  display: flex;
+  position: relative;
+  /*flex-wrap: wrap;*/
+  justify-content: left;
+}
+/*
+#sub {
+  display: none;
+}
+*/
 
 
