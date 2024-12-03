@@ -24,7 +24,28 @@ function App() {
   };
 
   function Bold() {
-    setBold("bold")
+    const element = document.getElementById("word")
+    element.style.fontWeight = "bold"
+  }
+  function Italics() {
+    const element = document.getElementById("word")
+    element.style.fontStyle = "italic"
+  }
+  function Underline(){
+    const element = document.getElementById("word")
+    element.style.textDecoration = "underline"
+  }
+  function Strikethrough(){
+    const element = document.getElementById("word")
+    element.style.textDecoration = "line-through"
+  }
+  function SubScript(){
+    const element = document.getElementById("word")
+    element.style.verticalAlign = "sub"
+  }
+  function SuperScript(){
+    const element = document.getElementById("word")
+    element.style.verticalAlign = "super"
   }
   return (
     <div className="App-header">
@@ -40,14 +61,15 @@ function App() {
             Format Painter
       </box>  
             <box className={home} id="Font">
-            Time New Roman
-            Bold
-            Italics
-            Underline
-            strikethrough
-            subscript
-            superscript
-            font size
+            <p>Times New Roman</p>
+            <p onClick={() => Bold()}>Bold</p>
+            <p onClick={() => Italics()}>Italics</p>
+            <p onClick={() => Underline()}>Underline</p>
+            <p onClick={() => Strikethrough()}>strikethrough</p>
+            <p onClick={() => SubScript()}>subscript</p>
+            <p onClick={() => SuperScript()}>subscript</p>
+            <p>font size</p>
+            
         
       </box>  
         
@@ -64,7 +86,7 @@ function App() {
       </header>  
       
       
-      <textarea className={bold}>
+      <textarea id='word'>
       
       </textarea>   
     </div>

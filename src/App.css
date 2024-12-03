@@ -85,10 +85,14 @@ box {
   justify-content: left;
 }
 textarea{
-  display: block;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  font-weight: bold;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  vertical-align: baseline;
+  
 }
 .bold {
   font-weight: bold;
