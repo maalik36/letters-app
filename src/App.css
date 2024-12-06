@@ -51,7 +51,7 @@ h2 {
 #Clipboard {
   border-radius: 10px;
   min-width: 100px;
-  max-width: 100px;
+  max-width: 1000px;
   min-height: 175px;
   max-height: 175px;
   box-sizing: border-box;

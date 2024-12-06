@@ -1,13 +1,14 @@
 //import logo from './logo.svg';
-import { text } from 'express';
+//import { text } from 'express';
 import './App.css';
-import React from 'react';
+//import React from 'react';
 import { useState, useEffect } from 'react';
 
 function App() {
   const [home, setHome] = useState("gone");
   const [insert, setInsert] = useState("gone");
   const [bold, setBold] = useState("normal")
+  let text = '';
   function Appear(word)
   {
     //let state = document.getElementById('sub');
@@ -51,12 +52,12 @@ function App() {
   }
   function Copy(){
     const textarea = document.getElementById("word");
-    const text = textarea.value;
-    const [success, setSuccess] = useState(false);
+    text = textarea.value;
+    //const [success, setSuccess] = useState(false);
     const handleCopy = async () => {
       try {
         await navigator.clipboard.writeText(text);
-        setSuccess(true);
+        //setSuccess(true);
       } catch (err) {
         console.error("Didn't work ", err);
       }
@@ -71,13 +72,14 @@ function App() {
   }
   function Cut () {
     const textarea = document.getElementById("word");
-    const text = textarea.value;
-    textarea.value = "";
-    const [success, setSuccess] = useState(false);
+    text = textarea.value;
+    
+    //const [success, setSuccess] = useState(false);
     const handleCopy = async () => {
       try {
         await navigator.clipboard.writeText(text);
-        setSuccess(true);
+        textarea.value = "";
+        //setSuccess(true);
       } catch (err) {
         console.error("Didn't work ", err);
       }
