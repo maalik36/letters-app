@@ -25,31 +25,49 @@ function App() {
     }
     
   };
-
+  
   function Bold() {
     const element = document.getElementById("word")
-    element.style.fontWeight = "bold"
+    if (element.style.fontWeight === "normal")
+    {
+      element.style.fontWeight = "bold";
+    }
+    else if (element.style.fontWeight === "bold")
+    {
+      element.style.fontWeight = "normal";
+    }
   }
   function Italics() {
     const element = document.getElementById("word")
-    element.style.fontStyle = "italic"
+    if (element.style.fontStyle === "normal")
+    {
+      element.style.fontStyle = "italic";
+    }
+    else if (element.style.fontStyle === "italic")
+    {
+      element.style.fontStyle = "normal";
+    }
+    
   }
   function Underline(){
-    const element = document.getElementById("word")
-    element.style.textDecoration = "underline"
+    const element = document.getElementById("word");
+    element.style.textDecoration = "underline";
+    
+        
   }
   function Strikethrough(){
-    const element = document.getElementById("word")
-    element.style.textDecoration = "line-through"
+    const element = document.getElementById("word");
+    element.style.textDecoration = "line-through";
   }
   function SubScript(){
-    const element = document.getElementById("word")
-    element.style.verticalAlign = "sub"
+    const element = document.getElementById("word");
+    element.style.verticalAlign = "sub";
   }
   function SuperScript(){
-    const element = document.getElementById("word")
-    element.style.verticalAlign = "super"
+    const element = document.getElementById("word");
+    element.style.verticalAlign = "super";
   }
+  /*
   function Copy(){
     const textarea = document.getElementById("word");
     text = textarea.value;
@@ -112,6 +130,79 @@ function App() {
       }
     }, []);
   }
+    onClick={() => Paste()}
+    onClick={() => Cut()}
+    onClick={() => Copy()}
+    onClick={() => FormatPainter()}
+    var canvas = document.getElementById("draw");
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = "red";
+  ctx.fillRect(0, 0, 150, 75);
+    <canvas id="draw" width='200' height='100' style='border: 1px solid black;'>
+
+      </canvas>
+  */
+  function IncreaseFont() {
+    const textarea = document.getElementById('word');
+    let size = textarea.value.length;
+    size++;
+    textarea.style.fontSize = size + 'px';
+  }
+  function DecreaseFont() {
+    const textarea = document.getElementById('word');
+    let size = textarea.value.length;
+    size--;
+    textarea.style.fontSize = size + 'px';
+  }
+  function ChangeCase() {
+    const textarea = document.getElementById('word');
+    if (textarea.style.textTransform === "lowercase")
+    {
+      textarea.style.textTransform = "uppercase";
+    }
+    else if (textarea.style.textTransform === "uppercase")
+    {
+      textarea.style.textTransform = "lowercase";
+    }
+    
+  }
+  function RemoveFormat() {
+    const textarea = document.getElementById('word');
+    textarea.style.fontWeight = "normal";
+    textarea.style.fontStyle = "normal";
+    textarea.style.textDecoration = "none";
+  }
+  function Highlight() {
+    const textarea = document.getElementById('word');
+    if (textarea.style.backgroundColor === "white")
+    {
+      textarea.style.backgroundColor = "yellow";
+    }
+    else if (textarea.style.backgroundColor === "yellow")
+    {
+      textarea.style.backgroundColor = "white";
+    }
+    
+  }
+  function LeftAlign() {
+    const textarea = document.getElementById('word');
+    textarea.style.textAlign = 'left';
+  }
+  function RightAlign() {
+    const textarea = document.getElementById('word');
+    textarea.style.textAlign = 'right';
+  }
+  function CenterAlign() {
+    const textarea = document.getElementById('word');
+    textarea.style.textAlign = 'center';
+  }
+    
+    
+    
+    
+    
+    
+  
   return (
     <div className="App-header">
       <header>
@@ -119,10 +210,10 @@ function App() {
         <h1 onClick={() => Appear("Insert")}>Insert</h1>
       </header>
       <box className={home} id="Clipboard">
-        <p onClick={() => Paste()}>Paste</p>
-        <p onClick={() => Cut()}>Cut</p>
-        <p onClick={() => Copy()}>Copy</p>
-        <p onClick={() => FormatPainter()}>FP</p>
+        <p >Paste</p>
+        <p >Cut</p>
+        <p >Copy</p>
+        <p >FP</p>
            
       </box>  
             <box className={home} id="Font">
@@ -134,16 +225,24 @@ function App() {
             <p onClick={() => SubScript()}>sub</p>
             <p onClick={() => SuperScript()}>super</p>
             <p>Fsize</p>
-            <p>IF</p>
-            <p>DF</p>
-            <p>CC</p>
-            <p>RF</p>
-            <p>Highlight</p>
+            <p onClick={() => IncreaseFont()}>IF</p>
+            <p onClick={() => DecreaseFont()}>DF</p>
+            <p onClick={() => ChangeCase()}>CC</p>
+            <p onClick={() => RemoveFormat()}>RF</p>
+            <p onClick={() => Highlight()}>Highlight</p>
             <p>FC</p>
 
         
       </box>  
-        
+        <box className={home} id='Paragraph'>
+          <p onClick={() => LeftAlign()}>LA</p>
+          <p onClick={() => CenterAlign()}>CA</p>
+          <p onClick={() => RightAlign()}>RA</p>
+          <p>Bullet</p>
+          <p>number</p>
+          <p>LS</p>
+          <p>Indent</p>
+        </box>
             <box className={insert}>
               Cover Page
               Blank Page
@@ -159,7 +258,11 @@ function App() {
       
       <textarea id='word'>
       
-      </textarea>   
+      </textarea>
+      
+      
+      
+         
     </div>
     
   );
