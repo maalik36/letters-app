@@ -51,7 +51,7 @@ h2 {
 #Clipboard {
   border-radius: 10px;
   min-width: 100px;
-  max-width: 100px;
+  max-width: 1000px;
   min-height: 175px;
   max-height: 175px;
   box-sizing: border-box;
@@ -91,6 +91,12 @@ textarea{
   font-weight: normal;
   font-style: normal;
   text-decoration: none;
+  font-size: 20px;
+  color: black;
+  text-transform: lowercase;
+  background-color: white;
+  /*align-content: center;*/
+  text-align: center;
 }
 .bold {
   font-weight: bold;
